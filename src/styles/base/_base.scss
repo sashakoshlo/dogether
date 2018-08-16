@@ -1,0 +1,43 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  word-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+  font-family: 'Montserrat', sans-serif;
+  font-size: $m-size;
+  background-color: $grey;
+  h1 {
+    font-size: $l-size;
+    font-weight: 300;
+    b {
+      font-weight: 600;
+    }
+  }
+  h3 {
+    font-size: $m-size;
+    font-weight: 300;
+  }
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  white-space: nowrap;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+button:visited, button:focus, input:focus {
+  outline: none;
+}
+
+.main {
+  display: flex;
+  //min-width: 100vw;
+}

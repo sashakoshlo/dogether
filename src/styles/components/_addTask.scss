@@ -1,0 +1,10 @@
+.addTask {
+  background-color: white;
+  margin-bottom: $s-size;
+  button {
+    padding: $s-size;
+    color: $dark-grey;
+    width: 100%;
+    text-align: left;
+  }
+}

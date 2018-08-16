@@ -1,0 +1,43 @@
+.modal {
+  margin: auto 0 auto auto;
+  border-left: 1px solid $dark-grey;
+  display: block;
+  background-color: white;
+  padding: 0;
+  max-width: 20vw;
+  min-height: 100vh;
+  align-self: center;
+  font-weight: 600;
+  h3 {
+    border-bottom: 1px solid $dark-grey;
+    margin: 0;
+    padding: $m-size;
+    font-weight: 400;
+  }
+  button {
+    padding: $xs-size $s-size;
+    margin-left: $s-size;
+    font-weight: 400;
+    background: $blue;
+    border-radius: 5em / 5em;
+    color: white;
+  }
+  .modalFields {
+    padding: $m-size;
+    display: block;
+    div {
+      margin-bottom: $s-size;
+      border-bottom: 1px solid $grey;
+    }
+    input {
+      display: block;
+      border: none;
+      padding: $s-size;
+    }
+  }
+  .modalActions {
+    display: flex;
+    justify-content: flex-end;
+    padding: $m-size;
+  }
+}

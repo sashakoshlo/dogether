@@ -1,0 +1,45 @@
+.task {
+  background-color: white;
+  margin: $s-size 0;
+  font-size: $sm-size;
+  padding: $s-size;
+  p {
+    font-weight: 400;
+    margin: $xs-size;
+  }
+  .fas {
+    color: $blue;
+  }
+  .taskHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    padding: 0 0 $xs-size 0;
+    p {
+      font-weight: 600;
+      margin: 0 $xs-size;
+    }
+    .taskHeaderActions {
+      display: flex;
+      align-content: flex-start;
+    }
+  }
+  .taskStatus {
+    display: flex;
+    justify-content: space-between;
+    select {
+      flex: 2;
+      margin-right: $s-size;
+    }
+    #saveStatus {
+      flex: 1;
+    }
+    button {
+      padding: $xs-size $s-size;
+      font-weight: 400;
+      background: $blue;
+      border-radius: 5em / 5em;
+      color: white;
+    }
+  }
+}

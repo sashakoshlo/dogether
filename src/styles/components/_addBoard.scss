@@ -1,0 +1,12 @@
+.addBoard {
+  margin: $sm-size;
+  input {
+    height: $l-size;
+    padding: 0 $s-size;
+    border: 1px solid $dark-grey;
+  }
+  button {
+    font-weight: 600;
+    color: $dark-grey;
+  }
+}

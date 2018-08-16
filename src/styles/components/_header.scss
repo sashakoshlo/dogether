@@ -1,0 +1,8 @@
+.header {
+  display: flex;
+  align-items: center;
+  img {
+    max-height: 44px;
+    padding-right: $s-size;
+  }
+}

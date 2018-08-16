@@ -1,0 +1,25 @@
+.project, .selectedProject {
+  .projectName {
+    max-width: 180px;
+    text-align: left;
+    white-space: pre-wrap;
+  }
+  padding: $xs-size 0;
+  border-left: 2px solid $dark-blue;
+  .projectButtons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $xs-size;
+  }
+}
+
+.selectedProject {
+  background-color: $superdark-blue;
+  border-left: 2px solid $pink;
+}
+
+.project:hover {
+  cursor: pointer;
+  background-color: $superdark-blue;
+  border-left: 2px solid $superdark-blue;
+}
