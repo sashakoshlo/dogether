@@ -2,7 +2,7 @@ import React from 'react';
 import Board from './Board';
 import AddBoard from './AddBoard';
 
-const Boards = (props) => (
+const Boards = props => (
   <div>
     <div className="projectHeader">
       <div className="projectTitle">
