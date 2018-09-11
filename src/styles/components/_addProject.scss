@@ -7,7 +7,8 @@
 }
 
 .startNewProject__form {
-  margin: $s-size -$m-size 0 -$m-size;
+  width: calc(260px - 2 * $s-size);
+  margin: 0;
   margin-top: $s-size;
   background-color: white;
   border: 1px solid $dark-blue;
@@ -18,9 +19,10 @@
     color: $dark-blue;
     border: 1px solid $dark-blue;
     border-radius: $xs-size;
-    max-width: 11vw;
+    width: 70%;
   }
   button {
+    width: 30%;
     background-color: $dark-blue;
     margin-left: $xs-size;
     padding: $xs-size;

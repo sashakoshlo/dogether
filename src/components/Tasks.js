@@ -1,35 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Task from './Task';
 import AddTask from './AddTask';
 
-const Tasks = (props) => {
+const Tasks = ({ tasks, boardId }) => {
   return (
     <div>
-      {props.tasksList.map((task, index) => {
+      {tasks.map((task, index) => {
         if (task.status !== 'Closed') {
-          return <Task 
-            key={index} 
-            task={task} 
-            taskId = {index}
-            boardId = {props.boardId}
-            handleIsEditingOn = {props.handleIsEditingOn}
-            handleSelectBoard = {props.handleSelectBoard}
-            handleSelectTask = {props.handleSelectTask}
-            handleOpenTaskModal = {props.handleOpenTaskModal}
-            handleChangeTaskStatus = {props.handleChangeTaskStatus}
-            handleDeleteTask = {props.handleDeleteTask}
-          />
-       }
+          return <Task key={task.id} task={task} />
+        }
       })}
-      <AddTask 
-        handleOpenTaskModal = {props.handleOpenTaskModal} 
-        boardId = {props.boardId}
-        handleSelectBoard = {props.handleSelectBoard}
-        handleIsEditingOff = {props.handleIsEditingOff}
-        handleUnselectTask = {props.handleUnselectTask}
-      />
+      <AddTask boardId={boardId} />
     </div>
   )
 }
 
-export default Tasks;
+const mapStateToProps = (state, props) => ({
+  tasks: state.tasks.filter(task => task.boardId === props.boardId)
+});
+
+export default connect(mapStateToProps)(Tasks);

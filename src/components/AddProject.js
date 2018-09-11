@@ -1,32 +1,52 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
+import { addProject } from "../actions/projects";
 
-export default class AddProject extends React.Component {
+class AddProject extends React.Component {
   state = {
-    formVisible: false
-  }
+    formVisible: false,
+  };
+
   handleShowForm = () => {
     this.setState(() => ({
-      formVisible: true
+      formVisible: true,
     }));
-  }
+  };
+
   handleAddProject = () => {
-    let projectName = document.getElementById('projectName').value;
+    const projectName = document.getElementById("projectName").value;
     if (projectName) {
-      this.props.handleAddProject(projectName);
+      this.props.dispatch(addProject(projectName));
     }
     this.setState(() => ({
-      formVisible: false
+      formVisible: false,
     }));
-  }
+  };
+
   render = () => (
     <div>
-      <button onClick={this.handleShowForm} className="startNewProject">Start New Project</button>
-      {this.state.formVisible && 
+      <button type="button" onClick={this.handleShowForm} className="startNewProject">
+        Start New Project
+      </button>
+      {this.state.formVisible && (
         <div className="startNewProject__form">
-          <input type="text" id="projectName" placeholder="Project Name"/>
-          <button onClick={this.handleAddProject}>Save</button>
+          <input
+            type="text"
+            id="projectName"
+            placeholder="Project Name"
+            autoFocus
+          />
+          <button type="submit" onClick={this.handleAddProject}>
+            Save
+          </button>
         </div>
-      }
+      )}
     </div>
-  )
+  );
 }
+
+const mapStateToProps = state => ({
+  projects: state.projects,
+});
+
+export default connect(mapStateToProps)(AddProject);

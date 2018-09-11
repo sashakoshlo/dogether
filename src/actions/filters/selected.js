@@ -1,14 +1,14 @@
-export const selectProject = (id = undefined) => ({
-  type: 'SELECT_PROJECT',
-  id,
+export const selectProject = (project = {}) => ({
+  type: "SELECT_PROJECT",
+  project
 });
 
 export const selectBoard = (id = undefined) => ({
-  type: 'SELECT_BOARD',
-  id,
+  type: "SELECT_BOARD",
+  id
 });
 
-export const selectTask = (id = undefined) => ({
-  type: 'SELECT_TASK',
-  id,
+export const selectTask = (task = {}) => ({
+  type: "SELECT_TASK",
+  task
 });

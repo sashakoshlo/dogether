@@ -1,5 +1,7 @@
 .leftPanel {
   min-height: 100vh;
+  width: 260px;
+  position: fixed;
   background-color: $dark-blue;
   color: white;
   button {

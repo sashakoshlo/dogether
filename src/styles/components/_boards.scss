@@ -2,8 +2,9 @@
   display: flex;
   .existingBoards {
     display: flex;
-    flex-wrap: wrap;
     margin-right: 0;
     padding-right: 0;
+    overflow: auto;
+    overflow-x: scroll;
   }
 }

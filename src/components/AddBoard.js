@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addBoard } from '../actions/boards';
 
-export default class AddBoard extends React.Component {
+class AddBoard extends React.Component {
   state = {
     editing: false
   }
@@ -17,7 +19,7 @@ export default class AddBoard extends React.Component {
   onHandleAddBoard = () => {
     const boardName = document.getElementById("boardName").value;
     if (boardName) {
-      this.props.handleAddBoard(boardName);
+      this.props.dispatch(addBoard(boardName, this.props.selectedProject.id));
     }
     this.setState(() => ({
       editing: false
@@ -25,15 +27,26 @@ export default class AddBoard extends React.Component {
   }
   render = () => {
     return (
-      <div className="addBoard">
-        {!this.state.editing && <button onClick={this.onHandleOpenEditForm}>+ New Board</button>}
-        {this.state.editing && 
-          <div>
-            <input type="text" autoFocus id="boardName" onKeyPress={this.onHandleKeyPress}/>
-            <button onClick = {this.onHandleAddBoard}>Save</button>
+      <div>
+        {!this.state.editing && <button className="addBoardButton" onClick={this.onHandleOpenEditForm}>+ New Board</button>}
+        {this.state.editing &&
+          <div className="addBoard">
+            <input
+              type="text"
+              autoFocus
+              id="boardName"
+              onKeyPress={this.onHandleKeyPress}
+            />
+            <button onClick={this.onHandleAddBoard}>Save</button>
           </div>
         }
       </div>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  selectedProject: state.selected.selectedProject
+});
+
+export default connect(mapStateToProps)(AddBoard);

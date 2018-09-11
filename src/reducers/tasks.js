@@ -1,4 +1,6 @@
-const tasksReducerDefaultState = [];
+import { loadState } from '../localStorage';
+
+const tasksReducerDefaultState = loadState() ? loadState().tasks : [];
 
 export default (state = tasksReducerDefaultState, action) => {
   switch (action.type) {

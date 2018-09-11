@@ -1,4 +1,6 @@
-const boardsReducerInitialState = [];
+import { loadState } from '../localStorage';
+
+const boardsReducerInitialState = loadState() ? loadState().boards : [];
 
 export default (state = boardsReducerInitialState, action) => {
   switch (action.type) {

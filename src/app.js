@@ -1,14 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'normalize.css/normalize.css';
-import './styles/styles.scss';
-import Provider from 'react-redux';
-import DogetherApp from './components/DogetherApp';
-import configureStore from './store/configureStore';
+import React from "react";
+import ReactDOM from "react-dom";
+import "normalize.css/normalize.css";
+import "./styles/styles.scss";
+import { Provider } from "react-redux";
+import DogetherApp from "./components/DogetherApp";
+import configureStore from "./store/configureStore";
+import { saveState, loadState } from './localStorage';
 
 const store = configureStore();
+
 store.subscribe(() => {
-  console.log(store.getState());
+  saveState({
+    projects: store.getState().projects,
+    boards: store.getState().boards,
+    tasks: store.getState().tasks
+  });
 });
 
 const jsx = (
@@ -17,4 +23,4 @@ const jsx = (
   </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(jsx, document.getElementById("app"));

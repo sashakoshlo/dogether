@@ -1,55 +1,82 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
+import { editProject, removeProject } from "../actions/projects";
+import { selectProject } from "../actions/filters/selected";
 
-export default class Project extends React.Component {
+class Project extends React.Component {
   state = {
-    editing: false
-  }
-  handleRenderBoards = () => {
-    this.props.handleRenderBoards(this.props.id);
-  }
+    editing: false,
+  };
+
   onHandleOpenEditForm = () => {
     this.setState(() => ({
-      editing: true
+      editing: true,
     }));
-  }
-  onHandleSaveProject = () => {
-    let projectName = document.getElementById('projectName').value;
+  };
+
+  onHandleEditProject = () => {
+    const projectName = document.getElementById("projectName").value;
     if (projectName) {
-      this.props.handleEditProject(projectName, this.props.id);
+      this.props.dispatch(editProject(this.props.project.id, projectName));
     }
     this.setState(() => ({
-      editing: false
+      editing: false,
     }));
-  }
+  };
+
   onHandleDeleteProject = () => {
-    if(confirm("Delete the item?")) {
-      this.props.handleDeleteProject(this.props.id);
+    if (confirm("Delete the item?")) {
+      this.props.dispatch(removeProject(this.props.project.id));
     }
-  }
+  };
+
+  onHandleSelectProject = () => {
+    this.props.dispatch(selectProject(this.props.project));
+  };
+
   render = () => {
-    const projectClass = this.props.selectedProject === this.props.id ? "selectedProject" : "project";
+    const project = this.props.project;
+    const id = project.id;
+    const projectClass = this.props.selectedProject.id === id ? "selectedProject" : "project";
     return (
-      <div className={projectClass}  onClick={this.handleRenderBoards}>
+      <div className={projectClass} onClick={this.onHandleSelectProject}>
         <div>
-          {!this.state.editing && 
-            <div key={this.props.id} className="projectButtons">
-              <button id={this.props.id} className="projectName">
-                {this.props.project.name}
+          {!this.state.editing && (
+            <div key={id} className="projectButtons">
+              <button id={id} className="projectName">
+                {project.name}
               </button>
               <div>
-                <button id={this.props.id} onClick={this.onHandleOpenEditForm}><i className="fas fa-pencil-alt"></i></button>
-                <button onClick={this.onHandleDeleteProject}><i className="fas fa-trash"></i></button>
+                <button id={id} onClick={this.onHandleOpenEditForm}>
+                  <i className="fas fa-pencil-alt" />
+                </button>
+                <button onClick={this.onHandleDeleteProject}>
+                  <i className="fas fa-trash" />
+                </button>
               </div>
             </div>
-          }
-          {this.state.editing &&
-            <div key={this.props.id} className="projectButtons">
-              <input type="text" id="projectName" defaultValue={this.props.project.name}/>
-              <button id={this.props.id} onClick={this.onHandleSaveProject}>Save</button>
+          )}
+          {this.state.editing && (
+            <div key={id} className="projectButtons">
+              <input
+                type="text"
+                id="projectName"
+                defaultValue={project.name}
+                autoFocus
+              />
+              <button id={id} onClick={this.onHandleEditProject}>
+                Save
+              </button>
             </div>
-          }
+          )}
         </div>
       </div>
-    )
-  }
+    );
+  };
 }
+
+const mapStateToProps = state => ({
+  selectedProject: state.selected.selectedProject,
+});
+
+export default connect(mapStateToProps)(Project);

@@ -1,21 +1,21 @@
-import uuid from 'uuid';
+import uuid from "uuid";
 
-export const addTask = (name, boardId) => ({
-  type: 'ADD_TASK',
+export const addTask = (task) => ({
+  type: "ADD_TASK",
   task: {
     id: uuid(),
-    name,
-    boardId,
+    ...task,
+    status: 'Open'
   },
 });
 
 export const editTask = (id, updates) => ({
-  type: 'EDIT_TASK',
+  type: "EDIT_TASK",
   id,
   updates,
 });
 
 export const removeTask = id => ({
-  type: 'REMOVE_TASK',
+  type: "REMOVE_TASK",
   id,
 });

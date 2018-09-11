@@ -1,18 +1,30 @@
-.modal {
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(193,	196, 200, 0.3);
+  }
+
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}
+
+.Modal {
   margin: auto 0 auto auto;
   border-left: 1px solid $dark-grey;
-  display: block;
   background-color: white;
   padding: 0;
-  max-width: 20vw;
+  width: 25vw;
   min-height: 100vh;
   align-self: center;
   font-weight: 600;
   h3 {
+    font-weight: 600;
+    margin: 0 $m-size;
+    padding: $m-size 0;
     border-bottom: 1px solid $dark-grey;
-    margin: 0;
-    padding: $m-size;
-    font-weight: 400;
   }
   button {
     padding: $xs-size $s-size;
@@ -24,15 +36,25 @@
   }
   .modalFields {
     padding: $m-size;
-    display: block;
-    div {
-      margin-bottom: $s-size;
-      border-bottom: 1px solid $grey;
+    span {
+      font-size: $s-size;
+      width: 25%;
+    }
+    input, select {
+      font-size: $s-size;
+      display: flex;
+      padding: $s-size;
+      border: none;
     }
     input {
-      display: block;
+      width: 75%;
+    }
+    .SingleDatePickerInput {
+      padding: 0;
       border: none;
-      padding: $s-size;
+    }
+    .CalendarDay__selected, .CalendarDay__selected:active, .CalendarDay__selected:hover {
+      background-color: $blue;
     }
   }
   .modalActions {
