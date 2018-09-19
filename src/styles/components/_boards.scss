@@ -1,10 +1,7 @@
 .boards {
-  display: flex;
-  .existingBoards {
-    display: flex;
-    margin-right: 0;
-    padding-right: 0;
-    overflow: auto;
-    overflow-x: scroll;
-  }
+  margin: 0;
+}
+
+.boardsContainer {
+  padding: 0;
 }

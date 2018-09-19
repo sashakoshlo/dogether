@@ -1,12 +1,12 @@
 .addBoardButton, .addBoard {
   margin: $sm-size;
+  margin-top: $l-size;
   display: flex;
 }
 
 .addBoard {
   input {
-    height: $l-size;
-    padding: 0 $s-size;
+    padding: $s-size;
     border: 1px solid $dark-grey;
   }
 }

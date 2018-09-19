@@ -13,6 +13,12 @@ class AddProject extends React.Component {
     }));
   };
 
+  onHandleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      this.handleAddProject();
+    }
+  }
+
   handleAddProject = () => {
     const projectName = document.getElementById("projectName").value;
     if (projectName) {
@@ -24,23 +30,31 @@ class AddProject extends React.Component {
   };
 
   render = () => (
-    <div>
-      <button type="button" onClick={this.handleShowForm} className="startNewProject">
-        Start New Project
+    <div className="container-fluid">
+      <div className="row add-project__form">
+        <button type="button" onClick={this.handleShowForm} className="startNewProject col">
+          Start New Project
       </button>
-      {this.state.formVisible && (
-        <div className="startNewProject__form">
-          <input
-            type="text"
-            id="projectName"
-            placeholder="Project Name"
-            autoFocus
-          />
-          <button type="submit" onClick={this.handleAddProject}>
-            Save
+        {this.state.formVisible && (
+          <div className="startNewProject__form row">
+            <input
+              type="text"
+              id="projectName"
+              placeholder="Project Name"
+              autoFocus
+              className="col"
+              onKeyPress={this.onHandleKeyPress}
+            />
+            <button
+              type="submit"
+              onClick={this.handleAddProject}
+              className="col-auto"
+            >
+              Save
           </button>
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

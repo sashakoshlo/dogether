@@ -1,65 +1,50 @@
-.Overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(193,	196, 200, 0.3);
-  }
-
-.ReactModal__Body--open {
-  overflow-y: hidden;
-}
-
 .Modal {
-  margin: auto 0 auto auto;
-  border-left: 1px solid $dark-grey;
-  background-color: white;
-  padding: 0;
-  width: 25vw;
-  min-height: 100vh;
-  align-self: center;
-  font-weight: 600;
-  h3 {
-    font-weight: 600;
-    margin: 0 $m-size;
-    padding: $m-size 0;
+  .row {
+    border-bottom: 1px solid $grey;
+    margin: 0 $s-size;
+    padding: 2.3rem 0;
+  }
+  .modalHeader {
     border-bottom: 1px solid $dark-grey;
+    padding: $l-size 0 0.6rem 0;
+  }
+  h3 {
+    font-weight: 500;
+    font-size: 2.4rem;
+    margin: 0;
+    padding: 0;
   }
   button {
-    padding: $xs-size $s-size;
+    @extend %button-purple;
+    font-size: $s-size;
+    padding: .2rem .6rem;
     margin-left: $s-size;
-    font-weight: 400;
-    background: $blue;
-    border-radius: 5em / 5em;
-    color: white;
   }
   .modalFields {
-    padding: $m-size;
     span {
-      font-size: $s-size;
       width: 25%;
     }
-    input, select {
+    span, input, select {
       font-size: $s-size;
-      display: flex;
-      padding: $s-size;
       border: none;
-    }
-    input {
-      width: 75%;
+      padding: 0;
     }
     .SingleDatePickerInput {
       padding: 0;
       border: none;
     }
+    .DateInput_input {
+      padding: 0;
+      font-weight: 400;
+    }
     .CalendarDay__selected, .CalendarDay__selected:active, .CalendarDay__selected:hover {
-      background-color: $blue;
+      background-color: $purple;
     }
   }
-  .modalActions {
-    display: flex;
-    justify-content: flex-end;
-    padding: $m-size;
-  }
+//   .modalActions {
+//     display: flex;
+//     justify-content: flex-end;
+//     padding: $m-size;
+//   }
+// }
 }

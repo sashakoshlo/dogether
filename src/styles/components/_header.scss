@@ -1,9 +1,12 @@
 .header {
-  padding-left: $m-size;
-  display: flex;
   align-items: center;
-  img {
-    max-height: 44px;
-    padding-right: $s-size;
+  h1, h2 {
+    margin: $m-size 0;
+  }
+  h2 {
+    margin-left: $m-size;
+    background-color: $pink;
+    padding: $xs-size;
+    border-radius: 4px;
   }
 }

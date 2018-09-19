@@ -1,21 +1,16 @@
 .board {
-  margin: 0 0 0 $m-size;
-  flex: 1;
-  max-width: 350px;
-}
+  margin-left: $m-size;
 
-.board-title {
-  width: 350px;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  margin: $sm-size 0 $s-size 0;
-  padding: 0;
-  h4 {
-    margin: 0;
-  }
-  div {
-    display: flex;
+  .board-header {
+    padding: $l-size 0 $ml-size 0;
+
+    h4 {
+      font-size: 2rem;
+      padding-right: 0;
+      margin-bottom: 0;
+    }
+    i {
+      color: $dark-grey;
+    }
   }
 }

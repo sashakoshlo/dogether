@@ -29,30 +29,31 @@ class Task extends React.Component {
   }
   render = () => {
     return (
-      <div className="task">
-        <div className="taskHeader">
-          <p>{this.props.task.name}</p>
-          <div className="taskHeaderActions">
+      <div className="task container-fluid">
+        <div className="task-header row">
+          <p className="col">{this.props.task.name}</p>
+          <div className="col-auto">
             <button onClick={this.onHandleEditTask}><i className="fas fa-pencil-alt"></i></button>
             <button onClick={this.onHandleDeleteTask}><i className="fas fa-trash"></i></button>
           </div>
         </div>
-        <p>Due: {moment(this.props.task.dueDate).format('DD/MM/YYYY')}</p>
-        <p>Priority: {this.props.task.priority}</p>
+        <p className="row">Due: {moment(this.props.task.dueDate).format('DD/MM/YYYY')}</p>
+        <p className="row">Priority: {this.props.task.priority}</p>
         {!this.state.editingStatus &&
-          <div onClick={this.onHandleChangeStatus} className="taskStatus">
-            <p>{this.props.task.status}</p>
-            <i className="fas fa-pencil-alt"></i>
+          <div onClick={this.onHandleChangeStatus} className="taskStatus row align-items-center">
+            <p className="col-auto">{this.props.task.status}</p>
+            <i className="fas fa-pencil-alt col-auto"></i>
           </div>
         }
         {this.state.editingStatus &&
-          <div className="taskStatus">
+          <div className="taskStatus row align-items-center">
             <select
               value={this.props.task.status}
               name="statuses"
               id="statusDropdown"
               autoFocus
               onChange={this.onHandleSaveStatus}
+              className="col"
             >
               <option value="Open">Open</option>
               <option value="In Progress">In Progress</option>

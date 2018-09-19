@@ -1,54 +1,37 @@
 .task {
   background-color: white;
-  margin: $s-size 0;
-  font-size: $sm-size;
-  padding: $s-size;
-  p {
-    font-weight: 400;
-    margin: $xs-size;
-  }
-  .fas {
-    color: $blue;
-  }
-  .taskHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; 
-    padding: 0 0 $xs-size 0;
-    p {
-      font-weight: 600;
-      margin: 0 $xs-size;
+  border-radius: 2px;
+  box-shadow: 0 12px 13px 0 rgba(0, 0, 0, 0.03);
+  border: solid 1px rgba(214, 223, 233, 0.51);
+  margin-bottom: $l-size;
+  i {
+      padding: 0;
+      color: $dark-grey;
     }
-    .taskHeaderActions {
-      display: flex;
-      align-content: flex-start;
+  .row {
+    margin: $s-size 0;
+    padding: 0 $ml-size;
+  }
+  p, select {
+    font-size: $sm-size;
+    font-weight: 500;
+    padding: 0;
+  }
+  .task-header {
+    padding: 0;
+    margin: $ml-size 0;
+    p {
+      padding-left: $ml-size;
+      font-size: $m-size;
+      font-weight: 500;
+      margin: 0;
     }
   }
   .taskStatus {
-    p {
-      margin: 0;
-      padding-right: $xs-size;
-    }
     i {
+      padding-left: $s-size;
+      margin-bottom: $s-size;
       font-size: $s-size;
-      font-weight: 600;
-    }
-    align-items: center;
-    display: flex;
-    margin: $sm-size $xs-size;
-    select {
-      flex: 2;
-      margin-right: $s-size;
-    }
-    #saveStatus {
-      flex: 1;
-    }
-    button {
-      padding: $xs-size $s-size;
-      font-weight: 400;
-      background: $blue;
-      border-radius: 5em / 5em;
-      color: white;
     }
   }
 }

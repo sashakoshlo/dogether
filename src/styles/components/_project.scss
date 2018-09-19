@@ -1,15 +1,25 @@
-.project, .selectedProject {
-  .projectName {
-    max-width: 180px;
-    text-align: left;
-    white-space: pre-wrap;
-  }
-  padding: $xs-size 0;
-  border-left: 2px solid $dark-blue;
+.selectedProject, .project {
+  margin: 0 -15px; 
   .projectButtons {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 $xs-size;
+    padding: $xs-size $xs-size $xs-size $m-size;
+    font-size: $sm-size;
+  }
+  .projectName {
+    padding-left: 0;
+    text-align: left;
+  }
+  .project-field {
+    margin-right: $sm-size;
+    border: 1px solid $dark-blue;
+    border-radius: $xs-size;
+  }
+  .project-actions {
+    padding: 0;
+  }
+  .project-action {
+    color: $purple;
+    padding: 0;
+    font-size: 1.3rem;
   }
 }
 

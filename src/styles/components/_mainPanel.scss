@@ -1,6 +1,6 @@
 .mainPanel {
   padding: 0;
-  padding-left: 260px;
-  flex: 110;
-  overflow: hidden;
+  .container-fluid {
+    padding: 0;
+  }
 }

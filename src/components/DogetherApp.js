@@ -9,12 +9,14 @@ class DogetherApp extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="main">
-          <div className="leftPanel">
-            <div className="header">
-              <img src="./images/logo.png" alt="Logo" />
-              <h1>
+      <div className="container-fluid">
+        <div className="row main">
+          <div className="leftPanel col-2">
+            <div className="header row">
+              <h2 className="col-auto">
+                DG
+              </h2>
+              <h1 className="col-auto">
                 <b>Do</b>
                 gether
               </h1>
@@ -22,7 +24,7 @@ class DogetherApp extends React.Component {
             <AddProject />
             {<Projects />}
           </div>
-          <div className="mainPanel">{this.props.selectedProject.id && <Boards />}</div>
+          <div className="mainPanel col">{this.props.selectedProject.id && <Boards />}</div>
         </div>
       </div>
     );

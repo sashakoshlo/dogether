@@ -1,0 +1,25 @@
+.projectHeader {
+  margin: 0;
+  padding: 2.6rem 0;
+  border-bottom: 1px solid $dark-grey;
+  .projectTitle {
+    padding: 0 $m-size;
+    display: flex;
+    img {
+      height: 3.6rem;
+    }
+    h1 {
+      padding: 0;
+      padding-left: $m-size;
+      margin: 0;
+      align-self: center;
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+  }
+  button {
+    @extend %button-purple;
+    font-size: $sm-size;
+    padding: $sm-size;
+  }
+}

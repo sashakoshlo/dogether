@@ -82,22 +82,23 @@ class TaskModal extends React.Component {
         overlayClassName="Overlay"
       >
         {this.state.error && <p>{this.state.error}</p>}
-        <div className="modalHeader">
-          {this.props.selectedTask ? <h3>Create Task</h3> : <h3>Edit Task</h3>}
+        <div className="modalHeader row">
+          {Object.keys(this.props.selectedTask).length ? <h3 className="col">Edit Task</h3> : <h3 className="col">Create Task</h3>}
         </div>
         <div className="modalFields">
-          <div>
-            <span>Task Name</span>
+          <div className="row align-items-center">
+            <span className="col-4">Task Name</span>
             <input
               type="text"
               id="taskName"
               value={this.state.name}
               onChange={this.onHandleNameChange}
               autoFocus
+              className="col"
             />
           </div>
-          <div>
-            <span>Due Date</span>
+          <div className="row align-items-center">
+            <span className="col-4">Due Date</span>
             <div>
               <SingleDatePicker
                 date={this.state.dueDate} // momentPropTypes.momentObj or null
@@ -110,13 +111,14 @@ class TaskModal extends React.Component {
               />
             </div>
           </div>
-          <div className="taskPriority">
-            <span>Priority</span>
+          <div className="taskPriority row align-items-center">
+            <span className="col-4">Priority</span>
             <select
               value={this.state.priority}
               name="priorities"
               id="priorityDropdown"
               onChange={this.onHandlePriorityChange}
+              className="col-auto"
             >
               <option value="Low">Low</option>
               <option value="Medium">Medium</option>
@@ -124,7 +126,7 @@ class TaskModal extends React.Component {
             </select>
           </div>
         </div>
-        <div className="modalActions">
+        <div className="modalActions row justify-content-end">
           <button onClick={this.onHandleSubmit}>Save</button>
           <button onClick={this.onHandleCloseModal}>Close</button>
         </div>
