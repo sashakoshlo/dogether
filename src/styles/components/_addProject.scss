@@ -1,33 +1,17 @@
 .add-project__form {
   margin-bottom: $xl-size;
-}
 
-.startNewProject {
-  border: 1px dashed white;
-  padding: $m-size;
-  border-radius: 5em / 5em;
-  display: block; 
-  margin: $m-size 0;
-  font-size: $sm-size;
-}
-
-.startNewProject__form {
-  background-color: white;
-  border: 1px solid $dark-blue;
-  padding: $s-size 0;
-  font-size: $sm-size;
+  .startNewProject, input {
+    border: 1px dashed white;
+    padding: $m-size;
+    border-radius: 5em / 5em;
+    display: block; 
+    margin: $m-size 0;
+    font-size: $sm-size;
+  }
   input {
-    margin: 0 $xs-size 0 $m-size;
-    padding: $xs-size;
-    color: $dark-blue;
-    border: 1px dashed $dark-blue;
-    border-radius: $xs-size;
-  }
-  button {
-    margin-right: $m-size;
-    background-color: $dark-blue;
-    padding: $xs-size;
-    border: 1px dashed $dark-blue;
-    border-radius: $xs-size;
+    background: $dark-blue;
+    color: white;
   }
 }
+

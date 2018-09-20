@@ -24,7 +24,7 @@ const Boards = ({ selectedProject, boards }) => (
           })}
         </div>
       </div>
-      <div className="col-auto">
+      <div className="col-2">
         <AddBoard />
       </div>
     </div>
