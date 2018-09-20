@@ -20,23 +20,29 @@ class Project extends React.Component {
     if (event.key === 'Enter') {
       this.onHandleEditProject();
     }
-  }
+  };
 
   onHandleEditProject = () => {
     const projectName = document.getElementById("projectName").value;
     if (projectName) {
       this.props.dispatch(editProject(this.props.project.id, projectName));
+      // const updatedProject = this.props.projects.find(project => project.id === this.props.selectedProject.id);
+      // console.log(updatedProject);
+      // this.props.dispatch(selectProject(updatedProject));
     }
     this.setState(() => ({
       editing: false,
     }));
   };
 
-  onHandleDeleteProject = () => {
+  onHandleDeleteProject = (event) => {
+    event.stopPropagation();
     if (confirm("Delete the item?")) {
-      this.props.dispatch(selectProject());
-      console.log(this.props.boards);
-      this.props.boards.forEach(board => {
+      if (this.props.selectedProject.id === this.props.project.id) {
+        this.props.dispatch(selectProject());
+      }
+      const boards = this.props.boards.filter(board => board.projectId === this.props.project.id);
+      boards.forEach(board => {
         const tasks = this.props.tasks.filter(task => task.boardId === board.id);
         console.log(tasks);
         tasks.forEach(task => this.props.dispatch(removeTask(task.id)));
@@ -82,9 +88,6 @@ class Project extends React.Component {
                 className="col project-field"
                 onKeyPress={this.onHandleKeyPress}
               />
-              <button id={id} onClick={this.onHandleEditProject} className="col-auto project-action">
-                Save
-              </button>
             </div>
           )}
         </div>
@@ -95,7 +98,8 @@ class Project extends React.Component {
 
 const mapStateToProps = state => ({
   selectedProject: state.selected.selectedProject,
-  boards: state.boards.filter(board => board.projectId === state.selected.selectedProject.id),
+  // projects: state.projects,
+  boards: state.boards,
   tasks: state.tasks,
 });
 

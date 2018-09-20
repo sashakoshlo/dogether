@@ -5,17 +5,20 @@ import { addBoard } from '../actions/boards';
 class AddBoard extends React.Component {
   state = {
     editing: false
-  }
+  };
+
   onHandleOpenEditForm = () => {
     this.setState(() => ({
       editing: true
     }));
-  }
+  };
+
   onHandleKeyPress = (event) => {
     if (event.key === 'Enter') {
       this.onHandleAddBoard();
     }
-  }
+  };
+
   onHandleAddBoard = () => {
     const boardName = document.getElementById("boardName").value;
     if (boardName) {
@@ -24,7 +27,8 @@ class AddBoard extends React.Component {
     this.setState(() => ({
       editing: false
     }));
-  }
+  };
+
   render = () => {
     return (
       <div>
@@ -37,7 +41,6 @@ class AddBoard extends React.Component {
               id="boardName"
               onKeyPress={this.onHandleKeyPress}
             />
-            <button onClick={this.onHandleAddBoard}>Save</button>
           </div>
         }
       </div>

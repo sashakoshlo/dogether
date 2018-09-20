@@ -39,7 +39,7 @@ class Board extends React.Component {
 
   render = () => {
     return (
-      <div className="board col-5">
+      <div className="board col-4">
         <div>
           {!this.state.editing &&
             <div className="row board-header align-items-center justify-content-center">
@@ -51,15 +51,15 @@ class Board extends React.Component {
             </div>
           }
           {this.state.editing &&
-            <div>
+            <div className="row board-header align-items-center justify-content-center">
               <input
                 type="text"
                 defaultValue={this.props.board.name}
                 id={"boardName" + this.props.board.id}
                 autoFocus
                 onKeyPress={this.onHandleKeyPress}
+                className="col-12"
               />
-              <button onClick={this.onHandleSaveBoard}>Save</button>
             </div>
           }
         </div>
