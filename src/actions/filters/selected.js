@@ -3,11 +3,6 @@ export const selectProject = (project = {}) => ({
   project
 });
 
-export const selectBoard = (id = undefined) => ({
-  type: "SELECT_BOARD",
-  id
-});
-
 export const selectTask = (task = {}) => ({
   type: "SELECT_TASK",
   task

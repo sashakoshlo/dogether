@@ -21,7 +21,8 @@ $desktop-breakpoint: 45rem;
 
 // Shared sets
 %button-purple {
-  color: $purple;
-  border: 1px dashed $purple;
+  background-color: $purple;
+  color: white;
+  border: 1px solid $purple;
   border-radius: 5em / 5em;
 }

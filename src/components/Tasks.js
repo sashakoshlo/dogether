@@ -1,23 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Task from './Task';
-import AddTask from './AddTask';
+import getVisibleTasks from '../selectors/visibleTasks';
 
-const Tasks = ({ tasks, boardId }) => {
-  return (
-    <div>
-      {tasks.map((task, index) => {
-        if (task.status !== 'Closed') {
-          return <Task key={task.id} task={task} />
-        }
-      })}
-      <AddTask boardId={boardId} />
-    </div>
-  )
-}
+const Tasks = ({ tasks }) => (
+  <div className="row justify-content-center">
+    {tasks.map(task => <Task key={task.id} task={task} />)}
+  </div>
+);
 
-const mapStateToProps = (state, props) => ({
-  tasks: state.tasks.filter(task => task.boardId === props.boardId)
+const mapStateToProps = (state) => ({
+  tasks: getVisibleTasks(state.tasks.filter(task => task.projectId === state.selected.selectedProject.id), state.filters)
 });
 
 export default connect(mapStateToProps)(Tasks);

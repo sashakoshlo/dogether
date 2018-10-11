@@ -13,6 +13,12 @@ class AddProject extends React.Component {
     }));
   };
 
+  handleHideForm = () => {
+    this.setState(() => ({
+      formVisible: false,
+    }));
+  }
+
   onHandleKeyPress = (event) => {
     if (event.key === 'Enter') {
       this.handleAddProject();
@@ -24,37 +30,31 @@ class AddProject extends React.Component {
     if (projectName) {
       this.props.dispatch(addProject(projectName));
     }
-    this.setState(() => ({
-      formVisible: false,
-    }));
+    handleHideForm();
   };
 
   render = () => (
     <div className="container-fluid">
-      <div className="row add-project__form">
-        <button type="button" onClick={this.handleShowForm} className="startNewProject col">
-          Start New Project
+      {!this.state.formVisible && (
+        <div className="row add-project__form">
+          <button type="button" onClick={this.handleShowForm} className="startNewProject col">
+            Start New Project
       </button>
-        {this.state.formVisible && (
-          <div className="startNewProject__form row">
-            <input
-              type="text"
-              id="projectName"
-              placeholder="Project Name"
-              autoFocus
-              className="col"
-              onKeyPress={this.onHandleKeyPress}
-            />
-            <button
-              type="submit"
-              onClick={this.handleAddProject}
-              className="col-auto"
-            >
-              Save
-          </button>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
+      {this.state.formVisible && (
+        <div className="add-project__form row">
+          <input
+            type="text"
+            id="projectName"
+            placeholder="Project Name"
+            autoFocus
+            className="col-12"
+            onKeyPress={this.onHandleKeyPress}
+            onBlur={this.handleHideForm}
+          />
+        </div>
+      )}
     </div>
   );
 }

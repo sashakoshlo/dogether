@@ -20,6 +20,6 @@
   button {
     @extend %button-purple;
     font-size: $sm-size;
-    padding: $sm-size;
+    padding: $s-size $l-size;
   }
 }

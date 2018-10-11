@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { editTask, removeTask } from '../actions/tasks';
-import { selectTask, selectBoard } from '../actions/filters/selected';
+import { selectTask } from '../actions/filters/selected';
 import { openModal } from '../actions/ui';
 import moment from 'moment';
 
@@ -10,7 +10,6 @@ class Task extends React.Component {
     editingStatus: false
   }
   onHandleEditTask = () => {
-    this.props.dispatch(selectBoard(this.props.task.boardId));
     this.props.dispatch(selectTask(this.props.task));
     this.props.dispatch(openModal());
   }
@@ -29,7 +28,7 @@ class Task extends React.Component {
   }
   render = () => {
     return (
-      <div className="task container-fluid">
+      <div className="task col-12 col-sm-10 col-lg-3">
         <div className="task-header row">
           <p className="col">{this.props.task.name}</p>
           <div className="col-auto">
@@ -65,9 +64,5 @@ class Task extends React.Component {
     )
   }
 }
-
-// const mapStateToProps = state = ({
-
-// });
 
 export default connect()(Task);

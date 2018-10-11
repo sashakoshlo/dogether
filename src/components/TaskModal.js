@@ -8,7 +8,6 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import { addTask, editTask } from '../actions/tasks';
 import { closeModal } from '../actions/ui';
-import { selectBoard } from '../actions/filters/selected';
 
 class TaskModal extends React.Component {
   constructor(props) {
@@ -18,16 +17,16 @@ class TaskModal extends React.Component {
       name: props.selectedTask.id ? props.selectedTask.name : '',
       dueDate: props.selectedTask.id ? moment(props.selectedTask.dueDate) : null,
       priority: props.selectedTask.id ? props.selectedTask.priority : 'Low',
-      boardId: props.selectedBoard,
+      projectId: props.selectedProject.id,
       calendarFocused: false,
       error: ''
     }
-  }
+  };
 
   onHandleNameChange = (e) => {
     const name = e.target.value;
     this.setState(() => ({ name }));
-  }
+  };
 
   onHandleDateChange = (dueDate) => {
     if (dueDate) {
@@ -38,11 +37,11 @@ class TaskModal extends React.Component {
   onHandlePriorityChange = (e) => {
     const priority = e.target.value;
     this.setState(() => ({ priority }));
-  }
+  };
 
   onHandleCloseModal = () => {
     this.props.dispatch(closeModal());
-  }
+  };
 
   onHandleSubmit = () => {
     if (!this.state.name) {
@@ -58,17 +57,17 @@ class TaskModal extends React.Component {
         name: this.state.name,
         dueDate: this.state.dueDate.valueOf(),
         priority: this.state.priority,
-        boardId: this.state.boardId
+        projectId: this.state.projectId
       }
+      console.log(task);
       if (this.props.selectedTask.id) {
         this.props.dispatch(editTask(this.props.selectedTask.id, task));
       } else {
         this.props.dispatch(addTask(task));
       }
       this.onHandleCloseModal();
-      this.props.dispatch(selectBoard());
     }
-  }
+  };
 
   render = () => {
     return (
@@ -78,7 +77,7 @@ class TaskModal extends React.Component {
         contentLabel="Task"
         shouldCloseOnOverlayClick={true}
         shouldCloseOnEsc={true}
-        className="Modal"
+        className="Modal col-12 col-sm-10 col-lg-3"
         overlayClassName="Overlay"
       >
         {this.state.error && <p>{this.state.error}</p>}
@@ -132,24 +131,13 @@ class TaskModal extends React.Component {
         </div>
       </Modal>
     );
-  }
-}
+  };
+};
 
 const mapStateToProps = state => ({
-  selectedBoard: state.selected.selectedBoard,
+  selectedProject: state.selected.selectedProject,
   selectedTask: state.selected.selectedTask,
   modalIsOpen: state.ui.modalIsOpen
 });
 
 export default connect(mapStateToProps)(TaskModal);
-
-
-// <div>
-//               <span>Due date</span>
-//               <input 
-//                 type="date" 
-//                 id="taskDueDate"
-//                 value={this.state.dueDate}
-//                 onChange={this.onHandleDueDateChange}
-//               />
-//             </div>

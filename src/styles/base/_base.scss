@@ -38,7 +38,8 @@ button:visited, button:focus, input:focus {
   outline: none;
 }
 
-// .main {
-//   display: flex;
-//   //min-width: 100vw;
-// }
+@media only screen and (max-width: 768px) {
+    html {
+  font-size: 80%;
+  } 
+}

@@ -1,6 +1,5 @@
 const defaultSelectedState = {
   selectedProject: {},
-  selectedBoard: undefined,
   selectedTask: {},
 };
 
@@ -10,11 +9,6 @@ export default (state = defaultSelectedState, action) => {
       return {
         ...state,
         selectedProject: action.project,
-      };
-    case 'SELECT_BOARD':
-      return {
-        ...state,
-        selectedBoard: action.id,
       };
     case 'SELECT_TASK':
       return {

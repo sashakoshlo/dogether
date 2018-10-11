@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import Projects from "./Projects";
+import ProjectList from "./ProjectList";
 import AddProject from "./AddProject";
-import Boards from './Boards';
+import Project from './Project';
 
 class DogetherApp extends React.Component {
   state = {};
@@ -11,7 +11,7 @@ class DogetherApp extends React.Component {
     return (
       <div className="container-fluid">
         <div className="row main">
-          <div className="leftPanel col-2">
+          <div className="leftPanel col-12 col-sm-5 col-lg-3 col-xl-2">
             <div className="header row">
               <h2 className="col-auto">
                 DG
@@ -22,9 +22,9 @@ class DogetherApp extends React.Component {
               </h1>
             </div>
             <AddProject />
-            {<Projects />}
+            {<ProjectList />}
           </div>
-          <div className="mainPanel col">{this.props.selectedProject.id && <Boards />}</div>
+          <div className="mainPanel col-12 col-sm-7 col-lg-9 col-xl-10">{this.props.selectedProject.id && <Project />}</div>
         </div>
       </div>
     );
