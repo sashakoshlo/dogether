@@ -1,7 +1,8 @@
-export default (tasks, { closedTasksVisible }) => {
+export default (tasks, { selectedProject }, { closedTasksVisible }) => {
+  let projectTasks = tasks.filter(task => task.projectId === selectedProject);
   if (closedTasksVisible) {
-    return tasks;
+    return projectTasks;
   }
 
-  return tasks.filter(task => task.status !== 'Closed');
+  return projectTasks.filter(task => task.status !== 'Closed');
 }

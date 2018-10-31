@@ -28,9 +28,9 @@ class Task extends React.Component {
   }
   render = () => {
     return (
-      <div className="task col-12 col-sm-10 col-lg-3">
+      <div className="task col-12 col-sm-10 col-lg-5 col-xl-3">
         <div className="task-header row">
-          <p className="col">{this.props.task.name}</p>
+          <h3 className="col">{this.props.task.name}</h3>
           <div className="col-auto">
             <button onClick={this.onHandleEditTask}><i className="fas fa-pencil-alt"></i></button>
             <button onClick={this.onHandleDeleteTask}><i className="fas fa-trash"></i></button>
@@ -39,13 +39,13 @@ class Task extends React.Component {
         <p className="row">Due: {moment(this.props.task.dueDate).format('DD/MM/YYYY')}</p>
         <p className="row">Priority: {this.props.task.priority}</p>
         {!this.state.editingStatus &&
-          <div onClick={this.onHandleChangeStatus} className="taskStatus row align-items-center">
+          <div onClick={this.onHandleChangeStatus} className="task-status row align-items-center">
             <p className="col-auto">{this.props.task.status}</p>
             <i className="fas fa-pencil-alt col-auto"></i>
           </div>
         }
         {this.state.editingStatus &&
-          <div className="taskStatus row align-items-center">
+          <div className="task-status row align-items-center">
             <select
               value={this.props.task.status}
               name="statuses"

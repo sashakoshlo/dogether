@@ -1,4 +1,4 @@
-.Overlay {
+.task-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,14 +9,4 @@
 
 .ReactModal__Body--open {
   overflow-y: hidden;
-}
-
-.Modal {
-  margin: auto 0 auto auto;
-  border-left: 1px solid $dark-grey;
-  background-color: white;
-  padding: 0;
-  min-height: 100vh;
-  align-self: center;
-  font-weight: 600;
 }

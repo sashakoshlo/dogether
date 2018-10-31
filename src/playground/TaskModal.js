@@ -23,47 +23,47 @@ export default class TaskModal extends React.Component {
   }
   render = () => {
     return (
-    <Modal
-      className = 'modal'
-      isOpen = {this.props.taskModalIsOpen}
-      onRequestClose = {this.props.handleCloseTaskModal}
-      contentLabel="Add Task"
-      shouldCloseOnOverlayClick={true}
-      shouldCloseOnEsc={true}
-    >
-      {!this.props.isEditingTask && 
-        <div className="modalFields">
-          <h3>Create Task</h3>
-          <div>
-            <span>Task Name</span>
-            <input type="text" id="taskName"/>
+      <Modal
+        className='modal'
+        isOpen={this.props.taskModalIsOpen}
+        onRequestClose={this.props.handleCloseTaskModal}
+        contentLabel="Add Task"
+        shouldCloseOnOverlayClick={true}
+        shouldCloseOnEsc={true}
+      >
+        {!this.props.isEditingTask &&
+          <div className="modalFields">
+            <h2>Create Task</h2>
+            <div>
+              <span>Task Name</span>
+              <input type="text" id="taskName" />
+            </div>
+            <div>
+              <span>Due date</span>
+              <input type="date" id="taskDueDate" />
+            </div>
           </div>
-          <div>
-            <span>Due date</span>
-            <input type="date" id="taskDueDate"/>
+        }
+        {this.props.isEditingTask &&
+          <div className="modalFields">
+            <h2>Edit Task</h2>
+            <div>
+              <span>Task Name</span>
+              <input type="text" id="taskName"
+                defaultValue={this.props.projects[this.props.selectedProject].boards[this.props.selectedBoard].tasks[this.props.selectedTask].name} />
+            </div>
+            <div>
+              <span>Due date</span>
+              <input type="date" id="taskDueDate"
+                defaultValue={this.props.projects[this.props.selectedProject].boards[this.props.selectedBoard].tasks[this.props.selectedTask].dueDate} />
+            </div>
           </div>
+        }
+        <div className="modalActions">
+          <button onClick={this.onHandleSubmit}>Save</button>
+          <button onClick={this.props.handleCloseTaskModal}>Close</button>
         </div>
-      }
-      {this.props.isEditingTask && 
-        <div className="modalFields">
-        <h3>Edit Task</h3>
-          <div>
-            <span>Task Name</span>
-            <input type="text" id="taskName" 
-              defaultValue={this.props.projects[this.props.selectedProject].boards[this.props.selectedBoard].tasks[this.props.selectedTask].name}/>
-          </div>  
-          <div>
-            <span>Due date</span>
-            <input type="date" id="taskDueDate" 
-              defaultValue={this.props.projects[this.props.selectedProject].boards[this.props.selectedBoard].tasks[this.props.selectedTask].dueDate} />
-          </div>  
-        </div>
-      }
-      <div className="modalActions">
-        <button onClick = {this.onHandleSubmit}>Save</button>
-        <button onClick = {this.props.handleCloseTaskModal}>Close</button>
-      </div>
-    </Modal>
-  );
+      </Modal>
+    );
   }
 }

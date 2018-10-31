@@ -14,6 +14,7 @@ export default () => {
       selected: selectedReducer,
       ui: uiReducer,
     }),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
   return store;
 };

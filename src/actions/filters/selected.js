@@ -1,6 +1,6 @@
-export const selectProject = (project = {}) => ({
+export const selectProject = (projectId = null) => ({
   type: "SELECT_PROJECT",
-  project
+  projectId
 });
 
 export const selectTask = (task = {}) => ({

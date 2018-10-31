@@ -12,8 +12,8 @@ class AddTask extends React.Component {
 
   render = () => {
     return (
-      <div className="addTask">
-        <button onClick={this.onHandleOpenModal}>New Task</button>
+      <div className="col">
+        <button onClick={this.onHandleOpenModal} className="project-details-header__action col">New Task</button>
         {this.props.modalIsOpen && <TaskModal />}
       </div>
     )

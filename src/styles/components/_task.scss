@@ -3,35 +3,35 @@
   border-radius: 2px;
   box-shadow: 0 12px 13px 0 rgba(0, 0, 0, 0.03);
   border: solid 1px rgba(214, 223, 233, 0.51);
-  margin: $l-size $l-size $l-size $m-size;
+  margin: $l-size $l-size $m-size $m-size;
   i {
-      padding: 0;
-      color: $dark-grey;
+    padding: 0;
+    color: $dark-grey;
     }
   .row {
     margin: $s-size 0;
     padding: 0 $ml-size;
   }
-  p, select {
-    font-size: $sm-size;
-    font-weight: 500;
+  p, select, h3 {
     padding: 0;
   }
   .task-header {
     padding: 0;
     margin: $ml-size 0;
-    p {
+    p, h3 {
       padding-left: $ml-size;
-      font-size: $m-size;
-      font-weight: 500;
       margin: 0;
     }
   }
-  .taskStatus {
+  .task-status {
     i {
       padding-left: $s-size;
       margin-bottom: $s-size;
-      font-size: $s-size;
     }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    padding: 0 $xs-size;
+    margin: $xs-size;
   }
 }

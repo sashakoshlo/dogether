@@ -1,34 +1,34 @@
-.selectedProject, .project {
+.selected-project-list-item, .project-list-item {
+  border-left: 2px solid $dark-blue;
   margin: 0 -15px; 
-  .projectButtons {
+  .project {
     padding: $xs-size $xs-size $xs-size $m-size;
-    font-size: $sm-size;
+    font-size: $p-size;
   }
-  .projectName {
+  .project__name {
     padding-left: 0;
     text-align: left;
   }
-  .project-field {
+  .project__input {
     margin-right: $sm-size;
     border: 1px solid $dark-blue;
     border-radius: $xs-size;
   }
-  .project-actions {
+  .project__actions {
     padding: 0;
   }
-  .project-action {
+  .project__actions__action {
     color: $purple;
     padding: 0;
-    font-size: 1.3rem;
   }
 }
 
-.selectedProject {
+.selected-project-list-item {
   background-color: $superdark-blue;
   border-left: 2px solid $pink;
 }
 
-.project:hover {
+.project-list-item:hover {
   cursor: pointer;
   background-color: $superdark-blue;
   border-left: 2px solid $superdark-blue;

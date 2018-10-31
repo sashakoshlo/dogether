@@ -1,0 +1,60 @@
+.task-modal {
+  margin: auto 0 auto auto;
+  border-left: 1px solid $dark-grey;
+  background-color: white;
+  padding: 0;
+  padding-top: $m-size;
+  min-height: 100vh;
+  align-self: center;
+  font-weight: 500;
+  .row {
+    border-bottom: 1px solid $grey;
+    margin: 0 $s-size;
+    padding: $ml-size 0;
+  }
+  .task-modal__error {
+    background-color: $red;
+    border-radius: 4px;
+    padding: $s-size;
+  }
+  .task-modal-header {
+    border-bottom: 1px solid $dark-grey;
+    padding: $m-size 0 $s-size 0;
+  }
+  h3 {
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+  }
+  .modal-actions__primary {
+    @extend %button-primary;
+  }
+  .modal-actions__secondary {
+    @extend %button-secondary;
+  }
+  .modal-actions__primary, .modal-actions__secondary {
+    padding: $xs-size $m-size;
+    margin-left: $s-size;
+  }
+  .task-modal-fields {
+    span {
+      width: 25%;
+    }
+    span, input, select {
+      border: none;
+      padding: 0;
+    }
+    .SingleDatePickerInput {
+      padding: 0;
+      border: none;
+    }
+    .DateInput_input {
+      padding: 0;
+      font-size: $p-size;
+      font-weight: 400;
+    }
+    .CalendarDay__selected, .CalendarDay__selected:active, .CalendarDay__selected:hover {
+      background-color: $purple;
+    }
+  }
+}

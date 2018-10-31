@@ -5,29 +5,33 @@ import AddProject from "./AddProject";
 import Project from './Project';
 
 class DogetherApp extends React.Component {
-  state = {};
-
   render() {
     return (
       <div className="container-fluid">
         <div className="row main">
-          <div className="leftPanel col-12 col-sm-5 col-lg-3 col-xl-2">
-            <nav className="sidebar-nav">
-              <div className="header row navbar-header">
-                <h2 className="col-auto">
-                  DG
+          <div className="left-panel col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+            <div className="left-panel__header row align-items-center">
+              <h3 className="col-auto">
+                DG
+                </h3>
+              <h2 className="col">
+                <b>Do</b>
+                gether
                 </h2>
-                <h1 className="col-auto">
-                  <b>Do</b>
-                  gether
-                </h1>
-                <button className="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">Toggle</button>
-              </div>
+              <button className="left-panel__header-button--visible-xs col-auto" data-toggle="collapse" data-target=".sidebar-collapse">
+                <i className="fas fa-bars"></i>
+              </button>
+            </div>
+
+            <div className="collapse left-panel__projects--dont-collapse-sm sidebar-collapse show">
               <AddProject />
               {<ProjectList />}
-            </nav>
+            </div>
+
           </div>
-          <div className="mainPanel col-12 col-sm-7 col-lg-9 col-xl-10">{this.props.selectedProject.id && <Project />}</div>
+          <div className="main-panel col-12 col-sm-7 col-md-8 col-lg-9 col-xl-10">
+            {this.props.selectedProject && <Project />}
+          </div>
         </div>
       </div>
     );

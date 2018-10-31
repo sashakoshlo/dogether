@@ -17,7 +17,7 @@ class TaskModal extends React.Component {
       name: props.selectedTask.id ? props.selectedTask.name : '',
       dueDate: props.selectedTask.id ? moment(props.selectedTask.dueDate) : null,
       priority: props.selectedTask.id ? props.selectedTask.priority : 'Low',
-      projectId: props.selectedProject.id,
+      projectId: props.selectedProject,
       calendarFocused: false,
       error: ''
     }
@@ -59,7 +59,6 @@ class TaskModal extends React.Component {
         priority: this.state.priority,
         projectId: this.state.projectId
       }
-      console.log(task);
       if (this.props.selectedTask.id) {
         this.props.dispatch(editTask(this.props.selectedTask.id, task));
       } else {
@@ -77,14 +76,14 @@ class TaskModal extends React.Component {
         contentLabel="Task"
         shouldCloseOnOverlayClick={true}
         shouldCloseOnEsc={true}
-        className="Modal col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3"
-        overlayClassName="Overlay"
+        className="task-modal col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3"
+        overlayClassName="task-modal-overlay"
       >
-        {this.state.error && <p>{this.state.error}</p>}
-        <div className="modalHeader row">
+        {this.state.error && <p className="task-modal__error row">{this.state.error}</p>}
+        <div className="task-modal-header row">
           {Object.keys(this.props.selectedTask).length ? <h3 className="col">Edit Task</h3> : <h3 className="col">Create Task</h3>}
         </div>
-        <div className="modalFields">
+        <div className="task-modal-fields">
           <div className="row align-items-center">
             <span className="col-4">Task Name</span>
             <input
@@ -125,9 +124,9 @@ class TaskModal extends React.Component {
             </select>
           </div>
         </div>
-        <div className="modalActions row justify-content-end">
-          <button onClick={this.onHandleSubmit}>Save</button>
-          <button onClick={this.onHandleCloseModal}>Close</button>
+        <div className="modal-actions row justify-content-end">
+          <button onClick={this.onHandleSubmit} className="modal-actions__primary">Save</button>
+          <button onClick={this.onHandleCloseModal} className="modal-actions__secondary">Close</button>
         </div>
       </Modal>
     );

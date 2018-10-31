@@ -6,40 +6,31 @@ body {
   word-wrap: break-word;
   word-break: break-word;
   font-family: 'Montserrat', sans-serif;
-  font-size: $m-size;
+  font-size: $p-size;
+  font-weight: 300;
   background-color: $light-grey;
   h1 {
-    font-size: $ml-size;
-    font-weight: 300;
+    font-size: $h1-size;
+  }
+  h2 {
+    font-size: $h2-size;
     b {
       font-weight: 600;
     }
   }
-  h2 {
-    font-size: $sm-size;
-  }
   h3 {
-    font-size: $sm-size;
-    font-weight: 300;
+    font-size: $h3-size;
   }
 }
 
 button {
+  font-size: $p-size;
   cursor: pointer;
   background: none;
   border: none;
-}
-
-button:disabled {
-  cursor: default;
 }
 
 button:visited, button:focus, input:focus {
   outline: none;
 }
 
-@media only screen and (max-width: 768px) {
-    html {
-  font-size: 80%;
-  } 
-}

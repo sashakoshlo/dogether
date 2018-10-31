@@ -46,40 +46,56 @@ class Project extends React.Component {
   };
 
   onHandleSelectProject = () => {
-    this.props.dispatch(selectProject(this.props.project));
+    this.props.dispatch(selectProject(this.props.project.id));
     this.props.dispatch(hideClosedTasks());
   };
 
   render = () => {
     const project = this.props.project;
     const id = project.id;
-    const projectClass = this.props.selectedProject.id === id ? "selectedProject" : "project";
+    const projectClass = this.props.selectedProject === id ? "selected-project-list-item" : "project-list-item";
     return (
-      <div className={projectClass} onClick={this.onHandleSelectProject}>
+      <div className={projectClass}>
         <div className="container-fluid">
           {!this.state.editing && (
-            <div key={id} className="projectButtons row">
-              <button id={id} className="projectName col">
-                {project.name}
-              </button>
-              <div className="col-auto project-actions">
+            <div key={id} className="project row">
+              {window.innerWidth > 576 &&
+                <button id={id}
+                  onClick={this.onHandleSelectProject}
+                  className="project__name col"
+                >
+                  {project.name}
+                </button>
+              }
+              {window.innerWidth < 576 &&
+                <button
+                  id={id}
+                  onClick={this.onHandleSelectProject}
+                  className="project__name col"
+                  data-toggle="collapse"
+                  data-target=".sidebar-collapse"
+                >
+                  {project.name}
+                </button>
+              }
+              <div className="col-auto project__actions">
                 <button id={id} onClick={this.onHandleOpenEditForm}>
-                  <i className="fas fa-pencil-alt project-action" />
+                  <i className="fas fa-pencil-alt project__actions__action" />
                 </button>
                 <button onClick={this.onHandleDeleteProject}>
-                  <i className="fas fa-trash project-action" />
+                  <i className="fas fa-trash project__actions__action" />
                 </button>
               </div>
             </div>
           )}
           {this.state.editing && (
-            <div key={id} className="projectButtons row">
+            <div key={id} className="project row">
               <input
                 type="text"
                 id="projectName"
                 defaultValue={project.name}
                 autoFocus
-                className="col project-field"
+                className="col project__input"
                 onKeyPress={this.onHandleKeyPress}
                 onBlur={this.onHandleCloseEditForm}
               />

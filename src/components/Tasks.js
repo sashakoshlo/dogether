@@ -10,7 +10,7 @@ const Tasks = ({ tasks }) => (
 );
 
 const mapStateToProps = (state) => ({
-  tasks: getVisibleTasks(state.tasks.filter(task => task.projectId === state.selected.selectedProject.id), state.filters)
+  tasks: getVisibleTasks(state.tasks, state.selected, state.filters)
 });
 
 export default connect(mapStateToProps)(Tasks);

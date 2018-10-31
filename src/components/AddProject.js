@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addProject } from "../actions/projects";
+import { selectProject } from "../actions/filters/selected";
 
 class AddProject extends React.Component {
   state = {
@@ -28,28 +29,29 @@ class AddProject extends React.Component {
   handleAddProject = () => {
     const projectName = document.getElementById("projectName").value;
     if (projectName) {
-      this.props.dispatch(addProject(projectName));
+      let project = this.props.dispatch(addProject(projectName)).project;
+      this.props.dispatch(selectProject(project));
     }
-    handleHideForm();
+    this.handleHideForm();
   };
 
   render = () => (
     <div className="container-fluid">
       {!this.state.formVisible && (
-        <div className="row add-project__form">
-          <button type="button" onClick={this.handleShowForm} className="startNewProject col">
+        <div className="row add-project">
+          <button type="button" onClick={this.handleShowForm} className="add-project__button col">
             Start New Project
       </button>
         </div>
       )}
       {this.state.formVisible && (
-        <div className="add-project__form row">
+        <div className="add-project row">
           <input
             type="text"
             id="projectName"
             placeholder="Project Name"
             autoFocus
-            className="col-12"
+            className="add-project__input col-12"
             onKeyPress={this.onHandleKeyPress}
             onBlur={this.handleHideForm}
           />
