@@ -1,17 +1,31 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
+import { openModal } from "../actions/ui";
+import { selectTask } from "../actions/filters/selected";
+import TaskModal from "./TaskModal";
 
-export default class AddTask extends React.Component {
-  onHandleAddTask = () => {
-    this.props.handleIsEditingOff();
-    this.props.handleUnselectTask();
-    this.props.handleOpenTaskModal();
-    this.props.handleSelectBoard(this.props.boardId);
-  }
-  render = () => {
-    return (
-      <div className="addTask">
-        <button onClick={this.onHandleAddTask}>+ New Task</button>
-      </div>
-    )
-  }
+class AddTask extends React.Component {
+  onHandleOpenModal = () => {
+    this.props.dispatch(selectTask());
+    this.props.dispatch(openModal());
+  };
+
+  render = () => (
+    <div className="col">
+      <button
+        type="button"
+        onClick={this.onHandleOpenModal}
+        className="project-details-header__action col"
+      >
+        New Task
+      </button>
+      {this.props.modalIsOpen && <TaskModal />}
+    </div>
+  );
 }
+
+const mapStateToProps = state => ({
+  modalIsOpen: state.ui.modalIsOpen,
+});
+
+export default connect(mapStateToProps)(AddTask);

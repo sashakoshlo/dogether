@@ -1,35 +1,16 @@
-import React from 'react';
-import Task from './Task';
-import AddTask from './AddTask';
+import React from "react";
+import { connect } from "react-redux";
+import Task from "./Task";
+import getVisibleTasks from "../selectors/visibleTasks";
 
-const Tasks = (props) => {
-  return (
-    <div>
-      {props.tasksList.map((task, index) => {
-        if (task.status !== 'Closed') {
-          return <Task 
-            key={index} 
-            task={task} 
-            taskId = {index}
-            boardId = {props.boardId}
-            handleIsEditingOn = {props.handleIsEditingOn}
-            handleSelectBoard = {props.handleSelectBoard}
-            handleSelectTask = {props.handleSelectTask}
-            handleOpenTaskModal = {props.handleOpenTaskModal}
-            handleChangeTaskStatus = {props.handleChangeTaskStatus}
-            handleDeleteTask = {props.handleDeleteTask}
-          />
-       }
-      })}
-      <AddTask 
-        handleOpenTaskModal = {props.handleOpenTaskModal} 
-        boardId = {props.boardId}
-        handleSelectBoard = {props.handleSelectBoard}
-        handleIsEditingOff = {props.handleIsEditingOff}
-        handleUnselectTask = {props.handleUnselectTask}
-      />
-    </div>
-  )
-}
+const Tasks = ({ tasks }) => (
+  <div className="row justify-content-center">
+    {tasks.map(task => <Task key={task.id} task={task} />)}
+  </div>
+);
 
-export default Tasks;
+const mapStateToProps = state => ({
+  tasks: getVisibleTasks(state.tasks, state.selected, state.filters),
+});
+
+export default connect(mapStateToProps)(Tasks);

@@ -1,55 +1,68 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
+import Tasks from "./Tasks";
+import AddTask from "./AddTask";
+import { showClosedTasks, hideClosedTasks, setTextFilter } from "../actions/filters/filters";
 
-export default class Project extends React.Component {
-  state = {
-    editing: false
-  }
-  handleRenderBoards = () => {
-    this.props.handleRenderBoards(this.props.id);
-  }
-  onHandleOpenEditForm = () => {
-    this.setState(() => ({
-      editing: true
-    }));
-  }
-  onHandleSaveProject = () => {
-    let projectName = document.getElementById('projectName').value;
-    if (projectName) {
-      this.props.handleEditProject(projectName, this.props.id);
-    }
-    this.setState(() => ({
-      editing: false
-    }));
-  }
-  onHandleDeleteProject = () => {
-    if(confirm("Delete the item?")) {
-      this.props.handleDeleteProject(this.props.id);
-    }
-  }
-  render = () => {
-    const projectClass = this.props.selectedProject === this.props.id ? "selectedProject" : "project";
-    return (
-      <div className={projectClass}  onClick={this.handleRenderBoards}>
-        <div>
-          {!this.state.editing && 
-            <div key={this.props.id} className="projectButtons">
-              <button id={this.props.id} className="projectName">
-                {this.props.project.name}
-              </button>
-              <div>
-                <button id={this.props.id} onClick={this.onHandleOpenEditForm}><i className="fas fa-pencil-alt"></i></button>
-                <button onClick={this.onHandleDeleteProject}><i className="fas fa-trash"></i></button>
-              </div>
-            </div>
-          }
-          {this.state.editing &&
-            <div key={this.props.id} className="projectButtons">
-              <input type="text" id="projectName" defaultValue={this.props.project.name}/>
-              <button id={this.props.id} onClick={this.onHandleSaveProject}>Save</button>
-            </div>
-          }
+const Project = ({
+  selectedProject, closedTasksVisible, textFilter, dispatch,
+}) => (
+  <div className="col">
+    <div className="project-details-header row align-items-center">
+      <div className="project-details-header__title col-12 col-md">
+        <img src="./images/projecticon.png" alt="Project icon" />
+        <h1>{selectedProject.name}</h1>
+      </div>
+      <div className="col-12 col-xl-4 order-1 order-md-2 order-xl-1">
+        <input
+          type="text"
+          className="col project-details-header__search"
+          placeholder="Search for tasks"
+          value={textFilter}
+          onChange={(e) => {
+            dispatch(setTextFilter(e.target.value));
+          }}
+        />
+      </div>
+      <div className="col col-md-auto row order-2 order-md-1 order-xl-2">
+        <div className="col project-details-header__button-container">
+          <AddTask projectId={selectedProject.id} />
+        </div>
+        <div className="col-auto project-details-header__button-container">
+          {closedTasksVisible ? (
+            <button
+              type="button"
+              onClick={() => {
+                dispatch(hideClosedTasks());
+              }}
+              className="project-details-header__secondary-action col"
+            >
+              Hide Closed Tasks
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => {
+                dispatch(showClosedTasks());
+              }}
+              className="project-details-header__secondary-action col"
+            >
+              Show Closed Tasks
+            </button>
+          )}
         </div>
       </div>
-    )
-  }
-}
+    </div>
+    <div className="col tasks-container justify-content-center">
+      <Tasks />
+    </div>
+  </div>
+);
+
+const mapStateToProps = state => ({
+  selectedProject: state.projects.find(project => project.id === state.selected.selectedProject),
+  closedTasksVisible: state.filters.closedTasksVisible,
+  textFilter: state.filters.text,
+});
+
+export default connect(mapStateToProps)(Project);

@@ -2,17 +2,40 @@
 $light-blue: #a6e5f3;
 $blue: #00a8ff;
 $dark-blue: #19233c;
-$superdark-blue: #131B2F;
-$pink: #fc5b83;
-$grey: #f2f5fa;
+$superdark-blue: #131b2f;
+$pink: #ff5d83;
+$light-grey: #fcfdfd;
+$grey: #e8eff8;
 $dark-grey: #c1c4c8;
+$purple: #6566fc;
+$red: #ff8080;
+
+//Font sizes:
+$h1-size: 2rem;
+$h2-size: 1.8rem;
+$h3-size: 1.6rem;
+$p-size: 1.4rem;
 
 //Spacing
-$xs-size: 0.9rem;
+$xs-size: 0.8rem;
 $s-size: 1.2rem;
 $sm-size: 1.4rem;
 $m-size: 1.6rem;
-$ml-size: 2.4rem;
-$l-size: 3.2rem;
-$xl-size: 4.8rem;
+$ml-size: 1.8rem;
+$l-size: 3rem;
+$xl-size: 4.3rem;
 $desktop-breakpoint: 45rem;
+
+// Shared sets
+%button-primary {
+  background-color: $purple;
+  color: white;
+  border: 1px solid $purple;
+  border-radius: 5em / 5em;
+}
+
+%button-secondary {
+  color: $purple;
+  border: 1px dashed $purple;
+  border-radius: 5em / 5em;
+}

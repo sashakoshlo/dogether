@@ -1,0 +1,12 @@
+.task-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(193, 196, 200, 0.3);
+}
+
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}

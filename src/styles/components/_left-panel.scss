@@ -1,0 +1,21 @@
+.left-panel {
+  background-color: $dark-blue;
+  color: white;
+  button,
+  span {
+    color: white;
+  }
+
+  @media only screen and (min-width: 576px) {
+    min-height: 100vh;
+
+    .collapse {
+      .left-panel__projects--dont-collapse-sm {
+        display: block;
+      }
+    }
+    .left-panel__header-button--visible-xs {
+      display: none;
+    }
+  }
+}
