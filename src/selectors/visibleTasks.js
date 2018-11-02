@@ -1,5 +1,5 @@
-export default (tasks, { selectedProject }, { closedTasksVisible }) => {
-  let projectTasks = tasks.filter(task => task.projectId === selectedProject);
+export default (tasks, { selectedProject }, { closedTasksVisible, text }) => {
+  let projectTasks = tasks.filter(task => (task.projectId === selectedProject && task.name.toLowerCase().includes(text.toLowerCase())));
   if (closedTasksVisible) {
     return projectTasks;
   }

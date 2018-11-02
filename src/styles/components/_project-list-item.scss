@@ -1,6 +1,7 @@
-.selected-project-list-item, .project-list-item {
+.selected-project-list-item,
+.project-list-item {
   border-left: 2px solid $dark-blue;
-  margin: 0 -15px; 
+  margin: 0 -15px;
   .project {
     padding: $xs-size $xs-size $xs-size $m-size;
     font-size: $p-size;

@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Task from './Task';
-import getVisibleTasks from '../selectors/visibleTasks';
+import React from "react";
+import { connect } from "react-redux";
+import Task from "./Task";
+import getVisibleTasks from "../selectors/visibleTasks";
 
 const Tasks = ({ tasks }) => (
   <div className="row justify-content-center">
@@ -9,8 +9,8 @@ const Tasks = ({ tasks }) => (
   </div>
 );
 
-const mapStateToProps = (state) => ({
-  tasks: getVisibleTasks(state.tasks, state.selected, state.filters)
+const mapStateToProps = state => ({
+  tasks: getVisibleTasks(state.tasks, state.selected, state.filters),
 });
 
 export default connect(mapStateToProps)(Tasks);

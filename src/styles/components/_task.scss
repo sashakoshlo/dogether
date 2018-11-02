@@ -7,30 +7,33 @@
   i {
     padding: 0;
     color: $dark-grey;
-    }
+  }
   .row {
     margin: $s-size 0;
     padding: 0 $ml-size;
   }
-  p, select, h3 {
+  p,
+  h3 {
     padding: 0;
   }
   .task-header {
     padding: 0;
     margin: $ml-size 0;
-    p, h3 {
+    p,
+    h3 {
       padding-left: $ml-size;
       margin: 0;
     }
   }
   .task-status {
+    cursor: pointer;
     i {
       padding-left: $s-size;
       margin-bottom: $s-size;
     }
   }
 
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 1199px) {
     padding: 0 $xs-size;
     margin: $xs-size;
   }

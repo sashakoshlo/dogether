@@ -1,5 +1,6 @@
 const defaultFiltersState = {
-  closedTasksVisible: false
+  closedTasksVisible: false,
+  text: ''
 }
 
 export default (state = defaultFiltersState, action) => {
@@ -8,7 +9,12 @@ export default (state = defaultFiltersState, action) => {
       return {
         ...state,
         closedTasksVisible: action.closedTasksVisible
-      }
+      };
+    case 'SET_TEXT_FILTER':
+      return {
+        ...state,
+        text: action.text
+      };
     default:
       return state;
   }

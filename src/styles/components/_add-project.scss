@@ -1,11 +1,12 @@
 .add-project {
   margin-bottom: $l-size;
 
-  .add-project__button, .add-project__input {
+  .add-project__button,
+  .add-project__input {
     border: 1px dashed white;
     padding: $m-size;
     border-radius: 5em / 5em;
-    display: block; 
+    display: block;
     margin: $m-size 0;
   }
   .add-project__input {
@@ -13,9 +14,9 @@
     color: white;
   }
   @media only screen and (max-width: 768px) {
-    .add-project__button, .add-project__input {
+    .add-project__button,
+    .add-project__input {
       margin: 0;
     }
   }
 }
-

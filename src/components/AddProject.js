@@ -20,17 +20,17 @@ class AddProject extends React.Component {
     }));
   }
 
-  onHandleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      this.handleAddProject();
+  onHandleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      this.handleAddProject(e);
     }
   }
 
-  handleAddProject = () => {
-    const projectName = document.getElementById("projectName").value;
+  handleAddProject = (e) => {
+    const projectName = e.target.value;
     if (projectName) {
-      let project = this.props.dispatch(addProject(projectName)).project;
-      this.props.dispatch(selectProject(project));
+      const project = this.props.dispatch(addProject(projectName)).project;
+      this.props.dispatch(selectProject(project.id));
     }
     this.handleHideForm();
   };
@@ -41,7 +41,7 @@ class AddProject extends React.Component {
         <div className="row add-project">
           <button type="button" onClick={this.handleShowForm} className="add-project__button col">
             Start New Project
-      </button>
+          </button>
         </div>
       )}
       {this.state.formVisible && (

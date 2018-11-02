@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { editProject, removeProject } from "../actions/projects";
-import { removeTask } from '../actions/tasks';
+import { removeTask } from "../actions/tasks";
 import { selectProject } from "../actions/filters/selected";
-import { hideClosedTasks } from '../actions/filters/filters';
+import { hideClosedTasks, setTextFilter } from "../actions/filters/filters";
 
 class Project extends React.Component {
   state = {
@@ -22,14 +22,14 @@ class Project extends React.Component {
     }));
   }
 
-  onHandleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      this.onHandleEditProject();
+  onHandleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      this.onHandleEditProject(e);
     }
   }
 
-  onHandleEditProject = () => {
-    const projectName = document.getElementById("projectName").value;
+  onHandleEditProject = (e) => {
+    const projectName = e.target.value;
     if (projectName) {
       this.props.dispatch(editProject(this.props.project.id, projectName));
     }
@@ -48,6 +48,7 @@ class Project extends React.Component {
   onHandleSelectProject = () => {
     this.props.dispatch(selectProject(this.props.project.id));
     this.props.dispatch(hideClosedTasks());
+    this.props.dispatch(setTextFilter());
   };
 
   render = () => {
@@ -59,30 +60,37 @@ class Project extends React.Component {
         <div className="container-fluid">
           {!this.state.editing && (
             <div key={id} className="project row">
-              {window.innerWidth > 576 &&
-                <button id={id}
-                  onClick={this.onHandleSelectProject}
-                  className="project__name col"
-                >
-                  {project.name}
-                </button>
+              {window.innerWidth > 576
+                && (
+                  <button
+                    type="button"
+                    id={id}
+                    onClick={this.onHandleSelectProject}
+                    className="project__name col"
+                  >
+                    {project.name}
+                  </button>
+                )
               }
-              {window.innerWidth < 576 &&
-                <button
-                  id={id}
-                  onClick={this.onHandleSelectProject}
-                  className="project__name col"
-                  data-toggle="collapse"
-                  data-target=".sidebar-collapse"
-                >
-                  {project.name}
-                </button>
+              {window.innerWidth < 576
+                && (
+                  <button
+                    type="button"
+                    id={id}
+                    onClick={this.onHandleSelectProject}
+                    className="project__name col"
+                    data-toggle="collapse"
+                    data-target=".sidebar-collapse"
+                  >
+                    {project.name}
+                  </button>
+                )
               }
               <div className="col-auto project__actions">
-                <button id={id} onClick={this.onHandleOpenEditForm}>
+                <button type="button" id={id} onClick={this.onHandleOpenEditForm}>
                   <i className="fas fa-pencil-alt project__actions__action" />
                 </button>
-                <button onClick={this.onHandleDeleteProject}>
+                <button type="button" onClick={this.onHandleDeleteProject}>
                   <i className="fas fa-trash project__actions__action" />
                 </button>
               </div>

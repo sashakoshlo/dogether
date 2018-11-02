@@ -32,7 +32,8 @@
   .modal-actions__secondary {
     @extend %button-secondary;
   }
-  .modal-actions__primary, .modal-actions__secondary {
+  .modal-actions__primary,
+  .modal-actions__secondary {
     padding: $xs-size $m-size;
     margin-left: $s-size;
   }
@@ -40,7 +41,9 @@
     span {
       width: 25%;
     }
-    span, input, select {
+    span,
+    input,
+    select {
       border: none;
       padding: 0;
     }
@@ -53,7 +56,9 @@
       font-size: $p-size;
       font-weight: 400;
     }
-    .CalendarDay__selected, .CalendarDay__selected:active, .CalendarDay__selected:hover {
+    .CalendarDay__selected,
+    .CalendarDay__selected:active,
+    .CalendarDay__selected:hover {
       background-color: $purple;
     }
   }

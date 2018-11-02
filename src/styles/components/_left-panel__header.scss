@@ -1,8 +1,11 @@
 .left-panel__header {
-  h2, h3, button {
+  h2,
+  h3,
+  button {
     margin: $m-size 0;
   }
-  h3, i {
+  h3,
+  i {
     margin-left: $m-size;
     background-color: $pink;
     padding: $xs-size;
