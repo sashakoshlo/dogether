@@ -4,8 +4,8 @@ $blue: #00a8ff;
 $dark-blue: #19233c;
 $superdark-blue: #131b2f;
 $pink: #ff5d83;
-$light-grey: #fcfdfd;
-$grey: #e8eff8;
+$light-grey: #f2f6fa;
+$grey: #d6d9de;
 $dark-grey: #c1c4c8;
 $purple: #6566fc;
 $red: #ff8080;
@@ -36,6 +36,6 @@ $desktop-breakpoint: 45rem;
 
 %button-secondary {
   color: $purple;
-  border: 1px dashed $purple;
+  border: 1px solid $purple;
   border-radius: 5em / 5em;
 }

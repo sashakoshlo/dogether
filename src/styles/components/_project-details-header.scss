@@ -1,5 +1,5 @@
 .project-details-header {
-  background: $light-grey;
+  background: white;
   margin: 0;
   padding: $l-size 0;
   border-bottom: 1px solid $dark-grey;
@@ -23,12 +23,8 @@
 
   .project-details-header__search {
     padding: $s-size;
-    border-radius: 5px;
+    border-radius: 5em / 5em;
     border: 1px solid $dark-grey;
-  }
-
-  ::placeholder {
-    color: $dark-grey;
   }
 
   .project-details-header__button-container {
@@ -51,12 +47,26 @@
   @media only screen and (max-width: 1199px) {
     .project-details-header__action,
     .project-details-header__secondary-action {
-      margin-top: $xs-size;
       padding: $s-size;
     }
     .project-details-header__search {
-      margin-top: $xs-size;
+      margin-top: $sm-size;
+      padding: $xs-size;
     }
     padding: $m-size 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .project-details-header__action,
+  .project-details-header__secondary-action {
+    margin-top: $sm-size;
+  }
+}
+
+@media only screen and (min-width: 768) and (max-width: 1199px) {
+  .project-details-header__action,
+  .project-details-header__secondary-action {
+    margin-top: 0;
   }
 }

@@ -3,27 +3,21 @@
   border-radius: 2px;
   box-shadow: 0 12px 13px 0 rgba(0, 0, 0, 0.03);
   border: solid 1px rgba(214, 223, 233, 0.51);
-  margin: $l-size $l-size $m-size $m-size;
+  margin: $m-size $l-size $m-size $m-size;
   i {
     padding: 0;
-    color: $dark-grey;
+    color: $grey;
   }
   .row {
     margin: $s-size 0;
-    padding: 0 $ml-size;
+    padding: 0 $s-size;
   }
   p,
   h3 {
     padding: 0;
   }
-  .task-header {
+  .task-header__buttons-container {
     padding: 0;
-    margin: $ml-size 0;
-    p,
-    h3 {
-      padding-left: $ml-size;
-      margin: 0;
-    }
   }
   .task-status {
     cursor: pointer;
@@ -36,5 +30,12 @@
   @media only screen and (max-width: 1199px) {
     padding: 0 $xs-size;
     margin: $xs-size;
+    h3 {
+      font-size: $p-size;
+    }
+    button {
+      padding-left: $ml-size;
+      padding-right: 0;
+    }
   }
 }

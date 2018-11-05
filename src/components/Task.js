@@ -50,7 +50,7 @@ class Task extends React.Component {
       <div className="task col-11 col-sm-10 col-lg-5 col-xl-3">
         <div className="task-header row">
           <h3 className="col">{task.name}</h3>
-          <div className="col-auto">
+          <div className="col-auto task-header__buttons-container">
             <button type="button" onClick={this.handleEditTask}>
               <i className="fas fa-pencil-alt" />
             </button>
