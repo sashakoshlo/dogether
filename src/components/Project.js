@@ -22,6 +22,11 @@ const Project = ({
           onChange={(e) => {
             dispatch(setTextFilter(e.target.value));
           }}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              e.target.blur();
+            }
+          }}
         />
       </div>
       <div className="col col-md-auto row order-2 order-md-1 order-xl-2">
