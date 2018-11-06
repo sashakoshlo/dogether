@@ -5,8 +5,10 @@
   "author": "Sasha",
   "license": "MIT",
   "scripts": {
-    "dev-server": "webpack-dev-server --open --config webpack.dev.js",
-    "start": "webpack --config webpack.prod.js"
+    "dev-server": "webpack-dev-server --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js",
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build:prod"
   },
   "dependencies": {
     "babel-cli": "6.24.1",
