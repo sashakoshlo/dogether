@@ -19,12 +19,9 @@
   .task-header__buttons-container {
     padding: 0;
   }
-  .task-status {
-    cursor: pointer;
-    i {
-      padding-left: $s-size;
-      margin-bottom: $s-size;
-    }
+  .task-status__dropdown {
+    padding: 0;
+    font-weight: 300;
   }
 
   @media only screen and (max-width: 1199px) {
