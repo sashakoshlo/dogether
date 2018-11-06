@@ -109,6 +109,7 @@ class TaskModal extends React.Component {
               numberOfMonths={1}
               hideKeyboardShortcutsPanel
               placeholder="Enter due date"
+              readOnly
             />
           </div>
         </div>
