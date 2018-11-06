@@ -10,3 +10,15 @@
 .ReactModal__Body--open {
   overflow-y: hidden;
 }
+
+.DateInput_fang,
+.DateInput_fang_1 {
+  display: none;
+}
+
+.SingleDatePicker_picker,
+.SingleDatePicker_picker_1,
+.SingleDatePicker_picker__directionLeft,
+.SingleDatePicker_picker__directionLeft_2 {
+  top: $l-size !important;
+}

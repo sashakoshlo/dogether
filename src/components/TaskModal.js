@@ -94,6 +94,7 @@ class TaskModal extends React.Component {
             onChange={this.onHandleNameChange}
             autoFocus
             className="col"
+            placeholder="Enter name"
           />
         </div>
         <div className="row align-items-center">
@@ -107,6 +108,7 @@ class TaskModal extends React.Component {
               id="taskCalendar" // PropTypes.string.isRequired,
               numberOfMonths={1}
               hideKeyboardShortcutsPanel
+              placeholder="Enter due date"
             />
           </div>
         </div>
@@ -126,15 +128,15 @@ class TaskModal extends React.Component {
         </div>
       </div>
       <div className="modal-actions row justify-content-end">
-        <button type="button" onClick={this.onHandleSubmit} className="modal-actions__primary">
-          Save
-        </button>
         <button
           type="button"
           onClick={this.onHandleCloseModal}
           className="modal-actions__secondary"
         >
           Close
+        </button>
+        <button type="button" onClick={this.onHandleSubmit} className="modal-actions__primary">
+          Save
         </button>
       </div>
     </Modal>

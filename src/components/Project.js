@@ -8,8 +8,8 @@ const Project = ({
   selectedProject, closedTasksVisible, textFilter, dispatch,
 }) => (
   <div className="col">
-    <div className="project-details-header row align-items-center">
-      <div className="project-details-header__title col-12 col-md">
+    <div className="project-details-header row align-items-center justify-content-between">
+      <div className="project-details-header__title col-12 col-md-auto col-xl-2">
         <img src="./images/projecticon.png" alt="Project icon" />
         <h1>{selectedProject.name}</h1>
       </div>
