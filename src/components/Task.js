@@ -34,24 +34,22 @@ class Task extends React.Component {
     const { task } = this.props;
     return (
       <div className="task col-11 col-sm-10 col-lg-5 col-xl-3">
-        <div className="task-header row">
+        <div className="task-header row align-items-start">
           <h3 className="col">{task.name}</h3>
-          <div className="col-auto task-header__buttons-container">
-            <button type="button" onClick={this.handleEditTask}>
+          <div className="col-3 col-md-2 col-lg-auto row task-header__buttons-container justify-content-between">
+            <button type="button" className="col-auto" onClick={this.handleEditTask}>
               <i className="fas fa-pencil-alt" />
             </button>
-            <button type="button" onClick={this.handleDeleteTask}>
+            <button type="button" className="col-auto" onClick={this.handleDeleteTask}>
               <i className="fas fa-trash" />
             </button>
           </div>
         </div>
         <p className="row">
-          Due:
-          {moment(task.dueDate).format("DD/MM/YYYY")}
+          Due: {moment(task.dueDate).format("DD/MM/YYYY")}
         </p>
         <p className="row">
-          Priority:
-          {task.priority}
+          Priority: {task.priority}
         </p>
         <div className="task-status row align-items-center">
           <select

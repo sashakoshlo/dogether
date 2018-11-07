@@ -20,13 +20,13 @@ class Project extends React.Component {
     this.setState(() => ({
       editing: false,
     }));
-  }
+  };
 
   onHandleKeyPress = (e) => {
     if (e.key === "Enter") {
       this.onHandleEditProject(e);
     }
-  }
+  };
 
   onHandleEditProject = (e) => {
     const projectName = e.target.value;
@@ -57,40 +57,41 @@ class Project extends React.Component {
     const projectClass = this.props.selectedProject === id ? "selected-project-list-item" : "project-list-item";
     return (
       <div className={projectClass}>
-        <div className="container-fluid">
+        <div>
           {!this.state.editing && (
             <div key={id} className="project row">
-              {window.innerWidth > 576
-                && (
-                  <button
-                    type="button"
-                    id={id}
-                    onClick={this.onHandleSelectProject}
-                    className="project__name col"
-                  >
-                    {project.name}
-                  </button>
-                )
-              }
-              {window.innerWidth < 576
-                && (
-                  <button
-                    type="button"
-                    id={id}
-                    onClick={this.onHandleSelectProject}
-                    className="project__name col"
-                    data-toggle="collapse"
-                    data-target=".sidebar-collapse"
-                  >
-                    {project.name}
-                  </button>
-                )
-              }
-              <div className="col-auto project__actions">
-                <button type="button" id={id} onClick={this.onHandleOpenEditForm}>
+              {window.innerWidth > 576 && (
+                <button
+                  type="button"
+                  id={id}
+                  onClick={this.onHandleSelectProject}
+                  className="project__name col"
+                >
+                  {project.name}
+                </button>
+              )}
+              {window.innerWidth < 576 && (
+                <button
+                  type="button"
+                  id={id}
+                  onClick={this.onHandleSelectProject}
+                  className="project__name col"
+                  data-toggle="collapse"
+                  data-target=".sidebar-collapse"
+                >
+                  {project.name}
+                </button>
+              )}
+              <div className="col-2 col-xl-2 project__actions row justify-content-between">
+                <button
+                  type="button"
+                  className="col-auto"
+                  id={id}
+                  onClick={this.onHandleOpenEditForm}
+                >
                   <i className="fas fa-pencil-alt project__actions__action" />
                 </button>
-                <button type="button" onClick={this.onHandleDeleteProject}>
+                <button type="button" className="col-auto" onClick={this.onHandleDeleteProject}>
                   <i className="fas fa-trash project__actions__action" />
                 </button>
               </div>

@@ -3,7 +3,8 @@
   border-left: 2px solid $dark-blue;
   margin: 0 -15px;
   .project {
-    padding: $xs-size $xs-size $xs-size $m-size;
+    margin: 0;
+    padding: $xs-size $m-size;
     font-size: $p-size;
   }
   .project__name {
@@ -17,6 +18,10 @@
   }
   .project__actions {
     padding: 0;
+    margin: 0;
+    button {
+      padding: 0;
+    }
   }
   .project__actions__action {
     color: $purple;
@@ -33,4 +38,11 @@
   cursor: pointer;
   background-color: $superdark-blue;
   border-left: 2px solid $superdark-blue;
+}
+
+@media only screen and (max-width: 1199px) {
+  .project-list-item .project,
+  .selected-project-list-item .project {
+    padding: $s-size;
+  }
 }

@@ -46,12 +46,10 @@
 
   @media only screen and (max-width: 1199px) {
     .project-details-header__action,
-    .project-details-header__secondary-action {
-      padding: $s-size;
-    }
+    .project-details-header__secondary-action,
     .project-details-header__search {
-      margin-top: $sm-size;
       padding: $xs-size;
+      margin-top: $sm-size;
     }
     padding: $m-size 0;
   }
@@ -61,12 +59,5 @@
   .project-details-header__action,
   .project-details-header__secondary-action {
     margin-top: $sm-size;
-  }
-}
-
-@media only screen and (min-width: 768) and (max-width: 1199px) {
-  .project-details-header__action,
-  .project-details-header__secondary-action {
-    margin-top: 0;
   }
 }

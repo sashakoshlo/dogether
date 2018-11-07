@@ -9,11 +9,11 @@ const Project = ({
 }) => (
   <div className="col">
     <div className="project-details-header row align-items-center justify-content-between">
-      <div className="project-details-header__title col-12 col-md-auto col-xl-2">
+      <div className="project-details-header__title col-12 col-md-12 col-xl-2">
         <img src="./images/projecticon.png" alt="Project icon" />
         <h1>{selectedProject.name}</h1>
       </div>
-      <div className="col-12 col-xl-4 order-1 order-md-2 order-xl-1">
+      <div className="col-12 col-md col-xl-4">
         <input
           type="text"
           className="col project-details-header__search"
@@ -29,7 +29,7 @@ const Project = ({
           }}
         />
       </div>
-      <div className="col col-md-auto row order-2 order-md-1 order-xl-2">
+      <div className="col col-md-auto row">
         <div className="col project-details-header__button-container">
           <AddTask projectId={selectedProject.id} />
         </div>

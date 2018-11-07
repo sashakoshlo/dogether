@@ -17,6 +17,7 @@
     padding: 0;
   }
   .task-header__buttons-container {
+    margin-top: 0;
     padding: 0;
   }
   .task-status__dropdown {
@@ -31,7 +32,6 @@
       font-size: $p-size;
     }
     button {
-      padding-left: $ml-size;
       padding-right: 0;
     }
   }
