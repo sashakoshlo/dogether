@@ -62,13 +62,15 @@
       margin-top: $s-size;
     }
     .project-details-header__secondary-action {
-      padding: $xs-size;
+      padding: $xs-size $s-size;
     }
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .project-details-header__secondary-action {
-    padding-left: 0;
+  .project-details-header {
+    .project-details-header__secondary-action {
+      padding-left: 0;
+    }
   }
 }
