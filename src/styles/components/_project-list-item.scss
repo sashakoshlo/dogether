@@ -12,9 +12,11 @@
     text-align: left;
   }
   .project__input {
-    margin-right: $sm-size;
+    margin: -$xs-size;
+    margin-left: 0;
+    padding: $xs-size;
     border: 1px solid $dark-blue;
-    border-radius: $xs-size;
+    border-radius: 5px;
   }
   .project__actions {
     padding: 0;
@@ -41,8 +43,10 @@
 }
 
 @media only screen and (max-width: 1199px) {
-  .project-list-item .project,
-  .selected-project-list-item .project {
-    padding: $s-size;
+  .project-list-item,
+  .selected-project-list-item {
+    .project {
+      padding: $s-size;
+    }
   }
 }

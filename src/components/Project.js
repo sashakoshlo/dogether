@@ -34,7 +34,7 @@ class Project extends React.Component {
             <img src="./images/projecticon.png" alt="Project icon" />
             <h1>{selectedProject.name}</h1>
           </div>
-          <div className="col-12 col-md col-xl-4">
+          <div className="col-12 col-md col-xl-4 project-details-header__container">
             <input
               type="text"
               className="col project-details-header__search"
@@ -51,7 +51,7 @@ class Project extends React.Component {
             />
           </div>
           <div className="col col-md-auto row">
-            <div className="col-auto project-details-header__button-container">
+            <div className="col-auto project-details-header__container">
               <div className="row align-items-center project-details-header__secondary-action">
                 <input
                   type="checkbox"
@@ -63,7 +63,7 @@ class Project extends React.Component {
                 <span className="col-auto">Show Closed Tasks</span>
               </div>
             </div>
-            <div className="col project-details-header__button-container">
+            <div className="col project-details-header__container">
               <AddTask projectId={selectedProject.id} />
             </div>
           </div>
