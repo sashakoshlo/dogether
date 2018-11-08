@@ -58,7 +58,7 @@ class Task extends React.Component {
             id="statusDropdown"
             onChange={this.handleSaveStatus}
             onBlur={this.handleCancelStatusChange}
-            className="col-auto custom-select task-status__dropdown"
+            className="col-6 custom-select task-status__dropdown"
           >
             <option value="Open">Open</option>
             <option value="In Progress">In Progress</option>
