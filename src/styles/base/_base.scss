@@ -43,3 +43,9 @@ input:focus,
 select:focus {
   outline: none;
 }
+
+@media only screen and (max-width: 1199px) {
+  html {
+    font-size: 68%;
+  }
+}
